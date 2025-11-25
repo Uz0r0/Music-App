@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music App</title>
+    <link rel="icon" href='./icons/logo.png'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="sidebar">
+        <ul>
+            <li>
+                <button onclick=toogleSidebar() id="toogle-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="M540-160.67q-64 0-107.67-43.66Q388.67-248 388.67-312t43.66-107.67Q476-463.33 540-463.33q25 0 45.17 6.83 20.16 6.83 39.5 19.83V-800H880v113.33H691.33V-312q0 64-43.66 107.67Q604-160.67 540-160.67ZM80-312q0-98.33 35.33-182.5 35.34-84.17 97-145.83Q274-702 358.17-737q84.16-35 181.83-35v66.67q-84 0-156 29.83t-124.83 82.67Q206.33-540 176.5-468.17 146.67-396.33 146.67-312H80Zm133.33 0q0-70.67 24.84-130.83Q263-503 306.5-546.5t103.17-67.83q59.66-24.34 130.33-24.34V-572q-115.33 0-187.67 72Q280-428 280-312h-66.67Z"/></svg>
+                </button>
+                <span class="logo">Music App</span>
+            </li>
+            <li>
+                <a href="#" class="active" data-page="home">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="M226.67-186.67h140v-246.66h226.66v246.66h140v-380L480-756.67l-253.33 190v380ZM160-120v-480l320-240 320 240v480H526.67v-246.67h-93.34V-120H160Zm320-352Z"/></svg>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-page="favourites">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="m480-120.67-46.67-42q-104.18-95.08-172.25-164.04Q193-395.67 152.67-450.17q-40.34-54.5-56.5-99.16Q80-594 80-640q0-91.44 61.33-152.72 61.34-61.28 152-61.28 55.34 0 103.34 25.33 48 25.34 83.33 72.67 39.33-49.33 86.33-73.67 47-24.33 100.34-24.33 90.66 0 152 61.28Q880-731.44 880-640q0 46-16.17 90.67-16.16 44.66-56.5 99.16-40.33 54.5-108.41 123.46-68.07 68.96-172.25 164.04l-46.67 42Zm0-88.66q99.49-90.67 163.75-155.5Q708-429.67 745.67-478.17q37.66-48.5 52.66-86.42t15-75.31q0-64.1-41.33-105.77-41.33-41.66-105.18-41.66-50.02 0-92.59 29.83-42.56 29.83-65.56 81.5h-58q-22.34-51-64.9-81.17-42.57-30.16-92.59-30.16-63.85 0-105.18 41.66-41.33 41.67-41.33 105.88 0 37.46 15 75.62 15 38.17 52.66 87Q252-428.33 316.67-363.83q64.66 64.5 163.33 154.5Zm0-289Z"/></svg>
+                    <span>Favourites</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <div class="searchContainer" id="searchContainer">
+            <button id="searchBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z" stroke="#ACACAC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 22L20 20" stroke="#ACACAC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <input type="text" placeholder="Search artist, tittle, album" id="searchInput">
+        </div>
+        <div id="error" class="loader hidden"></div>
+        <div id="loader" class="loader hidden">Loading...</div>
+        <div id="home"></div>
+        <div id="favourites"> </div>
+        <div class="space"></div>
+    </main>
+    <footer class="player">
+        <div class="player-left"> 
+            <img id="player-cover" src="./icons/cover.png" alt="cover">
+            <div>
+                <h4 id="player-title">Song Title</h4>
+                <p id="player-artist">Artist Name</p>
+            </div>
+        </div>
+
+        <div class="player-center">
+            <div class="controls">
+                <button id="prev">
+                    <img src="./icons/previous.svg" alt="">
+                </button>
+                <button id="play">
+                    <img src="/icons/pause.png" alt="">
+                </button>
+                <button id="next">
+                    <img src="./icons/next.svg" alt="">
+                </button>
+            </div>
+
+            <div class="timeline">
+                <span id="current-time">0:00</span>
+                <input type="range" id="progress" value="0" min="0" max="100">
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+
+        <div class="player-right">
+            <button id="fav">
+                <img src="./icons/heart.png" alt="">
+            </button>
+            <img class="volume-icon "src="./icons/volume.png" alt="">
+            <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+        </div>
+
+        <audio id="audio"></audio>
+    </footer>
+    <script src="script.js"> </script>
+</body>
+</html>
