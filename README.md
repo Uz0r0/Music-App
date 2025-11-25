@@ -11,7 +11,6 @@ Users can search for music and save their favorite tracks locally. All settings 
 - Like tracks to save them to your favorites  
 - Search and explore new music  
 - Fully responsive design for mobile, tablet, and desktop  
-- **Favorites saved automatically in LocalStorage**  
 
 ---
 
@@ -26,14 +25,16 @@ Users can search for music and save their favorite tracks locally. All settings 
 
 ## 📁 File Structure
 music-app/
-│── index.html
-│── style.css
-│── script.js
+- │── index.html
+- │── style.css
+- │── script.js
 
 ## 📦 Installation
 
 1. Clone the project:
    ```bash
    git clone https://github.com/your-username/music-app.git
+   
+---
 
-Created with ❤️ by Uz0r0
+## Created with ❤️ by Uz0r0
